@@ -5,7 +5,7 @@ public class PalindromeCheckerApp {
 
         boolean result = check(input, 0, input.length() - 1);
 
-        System.out.println("Input : " + input);
+        System.out.println(" Input : " + input);
         System.out.println("Is Palindrome? : " + result);
     }
 
