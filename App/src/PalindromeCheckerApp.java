@@ -1,14 +1,4 @@
 
-DIYA WADHWANI (RA2411003010039)
-        8:23 AM (18 minutes ago)
-
-        Add reaction
-
-        Reply
-
-        More
-        to PARNAVI, me, ADITYA
-
 import java.util.*;
 
 public class PalindromeCheckerApp {
