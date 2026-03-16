@@ -1,33 +1,57 @@
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class PalindromeCheckerApp {
+public class PalindromeCheckerApp extends JFrame implements ActionListener {
 
-    // Method to check palindrome
-    public static boolean isPalindrome(String text) {
+    JTextField inputField;
+    JButton checkButton;
+    JLabel resultLabel;
 
-        // Normalize text: remove non-letters and convert to lowercase
+    public PalindromeCheckerApp() {
+
+        setTitle("Palindrome Checker App");
+        setSize(400,200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        // Text Field
+        inputField = new JTextField(20);
+
+        // Button
+        checkButton = new JButton("Check Palindrome");
+        checkButton.addActionListener(this);
+
+        // Result Label
+        resultLabel = new JLabel("Enter text and press check");
+
+        add(new JLabel("Enter Text:"));
+        add(inputField);
+        add(checkButton);
+        add(resultLabel);
+
+        setVisible(true);
+    }
+
+    // Palindrome checking logic
+    public boolean isPalindrome(String text) {
         text = text.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        // Reverse the string
         String reversed = new StringBuilder(text).reverse().toString();
-
-        // Compare original and reversed
         return text.equals(reversed);
     }
 
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a word or sentence: ");
-        String input = scanner.nextLine();
+    // Button click event
+    public void actionPerformed(ActionEvent e) {
+        String input = inputField.getText();
 
         if (isPalindrome(input)) {
-            System.out.println("It is a palindrome ");
+            resultLabel.setText("It is a Palindrome ");
         } else {
-            System.out.println("It is NOT a palindrome ");
+            resultLabel.setText("Not a Palindrome ");
         }
+    }
 
-        scanner.close();
+    public static void main(String[] args) {
+        new PalindromeCheckerApp();
     }
 }
